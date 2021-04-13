@@ -1,15 +1,16 @@
-package com.example.service;
+package com.example.service.impl;
 
 import com.example.dao.UserDAO;
 import com.example.model.Task;
 import com.example.model.User;
+import com.example.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private UserDAO userDAO;
 
@@ -46,5 +47,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public User actualizarUsuario(User usuario) {
         return userDAO.actualizarUsuario(usuario);
+    }
+
+    @Override
+    public boolean eliminarUsuario(Long id) {
+        return userDAO.eliminarUsuario(id);
     }
 }

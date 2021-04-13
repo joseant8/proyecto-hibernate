@@ -65,6 +65,14 @@ public class UserController {
         return ResponseEntity.ok().body(usuarioActualizado);
     }
 
+    @DeleteMapping("/usuarios/{id}")
+    public ResponseEntity<Void> eliminarUsuario(@PathVariable Long id){
+        if(!servicio.eliminarUsuario(id))
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        return ResponseEntity.noContent().build();
+    }
+
 
 
 }

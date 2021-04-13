@@ -33,7 +33,8 @@ public class UserDAOImpl implements UserDAO{
      */
     @Override
     public List<User> recuperarTodosLosUsuarios() {
-        return session.createQuery("from User", User.class).list();
+        List<User> lista = session.createQuery("from User", User.class).list();
+        return lista;
     }
 
     /**
@@ -43,7 +44,8 @@ public class UserDAOImpl implements UserDAO{
      */
     @Override
     public User recuperarUsuario(Long id) {
-        return session.find(User.class, id);
+        User userDB = session.find(User.class, id);
+        return userDB;
     }
 
     /**
@@ -52,6 +54,7 @@ public class UserDAOImpl implements UserDAO{
      */
     @Override
     public List<User> recuperarTodosLosUsuariosActivos() {
+
         CriteriaBuilder builder = manager.getCriteriaBuilder();
         CriteriaQuery<User> criteria = builder.createQuery(User.class);
         Root<User> root = criteria.from(User.class);
@@ -89,5 +92,23 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public User actualizarUsuario(User usuario) {
         return repository.save(usuario);
+    }
+
+    /**
+     * Elimina un usuario utilizando Session de Hibernate.
+     * @param id
+     * @return true si se ha eliminado el usuario y false si no ha encontrado dicho usuario
+     */
+    @Override
+    public boolean eliminarUsuario(Long id) {
+        User usuarioDB = session.get(User.class, id);
+        if(usuarioDB == null){
+            return false;
+        }else{
+            session.beginTransaction();
+            session.delete(usuarioDB);
+            session.getTransaction().commit();
+            return true;
+        }
     }
 }

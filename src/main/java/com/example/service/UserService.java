@@ -19,4 +19,6 @@ public interface UserService {
     public User crearUsuario(User usuario);
 
     public User actualizarUsuario(User usuario);
+
+    public boolean eliminarUsuario(Long id);
 }
