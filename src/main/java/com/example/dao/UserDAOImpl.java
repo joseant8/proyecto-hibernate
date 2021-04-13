@@ -28,23 +28,23 @@ public class UserDAOImpl implements UserDAO{
 
 
     /**
-     * recupera todos los usuarios utilizando Session de Hibernate
+     * recupera todos los usuarios utilizando EntityManager
      * @return
      */
     @Override
     public List<User> recuperarTodosLosUsuarios() {
-        List<User> lista = session.createQuery("from User", User.class).list();
+        List<User> lista = manager.createQuery("from User", User.class).getResultList();
         return lista;
     }
 
     /**
-     * recupera un usuario por su id utilizando Session de Hibernate
+     * recupera un usuario por su id utilizando EntityManager
      * @param id
      * @return
      */
     @Override
     public User recuperarUsuario(Long id) {
-        User userDB = session.find(User.class, id);
+        User userDB = manager.find(User.class, id);
         return userDB;
     }
 

@@ -2,7 +2,6 @@ package com.example.dao;
 
 import com.example.model.Task;
 import com.example.repository.TaskRepository;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -20,28 +19,25 @@ public class TaskDAOImpl implements TaskDAO{
     private EntityManager manager;
 
     @Autowired
-    private Session session;
-
-    @Autowired
     private TaskRepository repository;
 
     /**
-     * Recupera todas las tareas utilizando Session de Hibernate
+     * Recupera todas las tareas utilizando EntityManager
      * @return
      */
     @Override
     public List<Task> recuperarTodasLasTareas() {
-        return session.createQuery("from Task", Task.class).list();
+        return manager.createQuery("from Task", Task.class).getResultList();
     }
 
     /**
-     * recupera una tarea por su id utilizando Session de Hibernate
+     * recupera una tarea por su id utilizando EntityManager
      * @param id
      * @return
      */
     @Override
     public Task recuperarTarea(Long id) {
-        return session.find(Task.class, id);
+        return manager.find(Task.class, id);
     }
 
     /**

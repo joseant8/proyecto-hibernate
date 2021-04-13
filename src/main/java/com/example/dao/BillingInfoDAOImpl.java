@@ -2,7 +2,6 @@ package com.example.dao;
 
 import com.example.model.BillingInfo;
 import com.example.repository.BillingInfoRepository;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -20,29 +19,26 @@ public class BillingInfoDAOImpl implements BillingInfoDAO{
     private EntityManager manager;
 
     @Autowired
-    private Session session;
-
-    @Autowired
     private BillingInfoRepository repository;
 
 
     /**
-     * Recupera todas las facturaciones utilizando Session de Hibernate
+     * Recupera todas las facturaciones utilizando EntityManager
      * @return
      */
     @Override
     public List<BillingInfo> recuperarTodasLasFacturaciones() {
-        return session.createQuery("from BillingInfo", BillingInfo.class).list();
+        return manager.createQuery("from BillingInfo", BillingInfo.class).getResultList();
     }
 
     /**
-     * Recupera una facturación por su id utilizando Session de Hibernate
+     * Recupera una facturación por su id utilizando EntityManager
      * @param id
      * @return
      */
     @Override
     public BillingInfo recuperarFacturacion(Long id) {
-        return session.find(BillingInfo.class, id);
+        return manager.find(BillingInfo.class, id);
     }
 
     /**

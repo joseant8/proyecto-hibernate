@@ -2,7 +2,6 @@ package com.example.dao;
 
 import com.example.model.Tag;
 import com.example.repository.TagRepository;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -20,28 +19,26 @@ public class TagDAOImpl implements TagDAO{
     private EntityManager manager;
 
     @Autowired
-    private Session session;
-
-    @Autowired
     private TagRepository repository;
 
     /**
-     * Recupera todas las etiquetas utilizando Session de Hibernate
+     * Recupera todas las etiquetas utilizando EntityManager
      * @return
      */
     @Override
     public List<Tag> recuperarTodasLasEtiquetas() {
-        return session.createQuery("from Tag", Tag.class).list();
+        List<Tag> lista = manager.createQuery("from Tag", Tag.class).getResultList();
+        return lista;
     }
 
     /**
-     * recupera una etiqueta por su id utilizando Session de Hibernate
+     * recupera una etiqueta por su id utilizando EntityManager
      * @param id
      * @return
      */
     @Override
     public Tag recuperarEtiqueta(Long id) {
-        return session.find(Tag.class, id);
+        return manager.find(Tag.class, id);
     }
 
     /**
