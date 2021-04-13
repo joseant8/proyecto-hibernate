@@ -12,8 +12,10 @@ insert into task (titulo, descripcion, fecha_entrega, finalizada) values ("Entre
 insert into task (titulo, descripcion, fecha_entrega, finalizada) values ("Entrega5", "Entrega del proyecto 5", "2021-05-15", false);
 insert into task (titulo, descripcion, fecha_entrega, finalizada) values ("Entrega6", "Entrega del proyecto 6", "2021-05-20", false);
 
-
-
-
+-- etiquetas
+insert into tag (nombre, color) values ("Refactorizar", 0);
+insert into tag (nombre, color) values ("Implementar", 1);
+insert into tag (nombre, color) values ("Testear", 2);
+insert into tag (nombre, color) values ("ArreglarFallo", 3);
 
 -- relaciones
