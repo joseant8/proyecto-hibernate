@@ -18,4 +18,11 @@ insert into tag (nombre, color) values ("Implementar", 1);
 insert into tag (nombre, color) values ("Testear", 2);
 insert into tag (nombre, color) values ("ArreglarFallo", 3);
 
+-- facturación
+insert into billing_info (direccion, telefono) values ("Calle Rosa García Ascot, Málaga", "000100200");
+insert into billing_info (direccion, telefono) values ("Av Paseo de la Castellana, Madrid", "100500800");
+insert into billing_info (direccion, telefono) values ("Calle de la Paz, Valencia", "600500900");
+
+
+
 -- relaciones
