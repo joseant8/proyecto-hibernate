@@ -45,7 +45,7 @@ public class TagDAOImpl implements TagDAO{
     }
 
     /**
-     * recupera una etiqueta según el nombre
+     * recupera una etiqueta según el nombre utilizando criteria con EntityManager
      * @param nombre
      * @return
      */
