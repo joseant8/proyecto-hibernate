@@ -21,6 +21,11 @@ public class UserController {
         this.servicio = servicio;
     }
 
+
+    // -----------------------------
+    // Consultas
+    // -----------------------------
+
     @GetMapping("/usuarios")
     public List<User> recuperarTodosLosUsuarios(){
         return servicio.recuperarTodosLosUsuarios();
@@ -45,6 +50,9 @@ public class UserController {
         return servicio.recuperarTareasDelUsuario(id);
     }
 
+    // -----------------------------
+    // Crear
+    // -----------------------------
 
     @PostMapping("/usuarios")
     public ResponseEntity<User> crearUsuario(@RequestBody User usuario) throws URISyntaxException {
@@ -55,6 +63,9 @@ public class UserController {
         return ResponseEntity.created(new URI("/api/usuarios/" + usuarioCreado.getId())).body(usuarioCreado);
     }
 
+    // -----------------------------
+    // Actualizar
+    // -----------------------------
 
     @PutMapping("/usuarios")
     public ResponseEntity<User> actualizarUsuario(@RequestBody User usuario){
@@ -64,6 +75,10 @@ public class UserController {
         User usuarioActualizado = servicio.actualizarUsuario(usuario);
         return ResponseEntity.ok().body(usuarioActualizado);
     }
+
+    // -----------------------------
+    // Elimminar
+    // -----------------------------
 
     @DeleteMapping("/usuarios/{id}")
     public ResponseEntity<Void> eliminarUsuario(@PathVariable Long id){
