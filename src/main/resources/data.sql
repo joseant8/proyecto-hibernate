@@ -22,7 +22,34 @@ insert into tag (nombre, color) values ("ArreglarFallo", 3);
 insert into billing_info (direccion, telefono) values ("Calle Rosa García Ascot, Málaga", "000100200");
 insert into billing_info (direccion, telefono) values ("Av Paseo de la Castellana, Madrid", "100500800");
 insert into billing_info (direccion, telefono) values ("Calle de la Paz, Valencia", "600500900");
+insert into billing_info (direccion, telefono) values ("Av Paseo de Cristóbal Colón, Sevilla", "500500900");
 
 
 
--- relaciones
+-----Establecemos relaciones-----
+
+-- relaciones usuario-facturación
+update user set billing_id=1 where id=1;
+update user set billing_id=2 where id=3;
+update user set billing_id=3 where id=2;
+update user set billing_id=4 where id=4;
+
+-- relaciones tareas-usuario
+update task set user_id=1 where id=1;
+update task set user_id=1 where id=2;
+update task set user_id=2 where id=3;
+update task set user_id=3 where id=4;
+update task set user_id=3 where id=5;
+update task set user_id=4 where id=6;
+
+-- relaciones tareas-etiquetas
+insert into task_tag (task_id, tag_id) values (1, 2);
+insert into task_tag (task_id, tag_id) values (1, 3);
+insert into task_tag (task_id, tag_id) values (2, 1);
+insert into task_tag (task_id, tag_id) values (2, 4);
+insert into task_tag (task_id, tag_id) values (2, 3);
+insert into task_tag (task_id, tag_id) values (3, 2);
+insert into task_tag (task_id, tag_id) values (4, 1);
+insert into task_tag (task_id, tag_id) values (5, 4);
+insert into task_tag (task_id, tag_id) values (5, 3);
+insert into task_tag (task_id, tag_id) values (6, 1);
