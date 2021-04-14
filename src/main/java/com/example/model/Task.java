@@ -1,5 +1,7 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class Task {
 
     @ManyToOne()
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User usuario;
 
     @ManyToMany
@@ -91,6 +94,11 @@ public class Task {
         this.usuario = usuario;
     }
 
+    // Para evitar en la respuesta json la recursión infinita en relaciones bidireccionales, devolvemos el id del usuario
+    public Long getUsuarioId() {
+        return usuario.getId();
+    }
+
     public List<Tag> getTags() {
         return tags;
     }
@@ -108,7 +116,7 @@ public class Task {
                 ", finalizada=" + finalizada +
                 ", fechaEntrega=" + fechaEntrega +
                 ", usuario=" + usuario.getNombre() +
-                ", tags=" + tags +
+                ", num_tags=" + tags.size() +
                 '}';
     }
 }

@@ -1,5 +1,7 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ public class User {
     private LocalDate fechaNacimiento;
 
     @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
     List<Task> tareas = new ArrayList<>();
 
     @OneToOne(orphanRemoval = true, cascade = CascadeType.ALL)

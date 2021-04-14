@@ -2,6 +2,7 @@ package com.example.service.impl;
 
 import com.example.dao.TagDAO;
 import com.example.model.Tag;
+import com.example.model.Task;
 import com.example.service.TagService;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +30,11 @@ public class TagServiceImpl implements TagService {
     @Override
     public Tag recuperarEtiquetaPorNombre(String nombre) {
         return tagDAO.recuperarEtiquetaPorNombre(nombre);
+    }
+
+    @Override
+    public List<Task> recuperarTodasLasTareasConEtiqueta(Long id) {
+        return tagDAO.recuperarTodasLasTareasConEtiqueta(id);
     }
 
     @Override

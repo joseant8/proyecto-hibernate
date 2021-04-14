@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import com.example.model.Tag;
+import com.example.model.Task;
 import com.example.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -60,6 +61,17 @@ public class TagDAOImpl implements TagDAO{
         }catch (RuntimeException e){
             return null;
         }
+    }
+
+    /**
+     * recupera todas las tareas con la etiqueta pasada por parámetro
+     * @param id de la etiqueta
+     * @return
+     */
+    @Override
+    public List<Task> recuperarTodasLasTareasConEtiqueta(Long id) {
+        Tag tag = manager.find(Tag.class, id);
+        return tag.getTareas();
     }
 
     /**

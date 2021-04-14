@@ -71,7 +71,7 @@ public class UserDAOImpl implements UserDAO{
      */
     @Override
     public List<Task> recuperarTareasDelUsuario(Long id) {
-        return manager.createQuery("select u from User u join u.tareas where u.id = " + id).getResultList();
+        return manager.createQuery("select t from Task t where t.usuario = " + id).getResultList();
     }
 
     /**

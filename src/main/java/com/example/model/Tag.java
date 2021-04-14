@@ -1,5 +1,7 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ public class Tag {
     private TagColor color;
 
     @ManyToMany(mappedBy = "tags")
+    @JsonIgnore    // Para evitar en la respuesta json la recursión infinita en relaciones bidireccionales
     private List<Task> tareas = new ArrayList<>();
 
     public Tag() {
@@ -64,7 +67,7 @@ public class Tag {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", color=" + color +
-                //", tareas=" + tareas +
+                ", num_tareas=" + tareas.size() +
                 '}';
     }
 }

@@ -1,5 +1,7 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +16,7 @@ public class BillingInfo {
     private String telefono;
 
     @OneToOne(mappedBy = "facturacion")
+    @JsonIgnore     // Para evitar en la respuesta json la recursión infinita en relaciones bidireccionales
     private User usuario;
 
     public BillingInfo() {
@@ -46,6 +49,11 @@ public class BillingInfo {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    // Para evitar en la respuesta json la recursión infinita en relaciones bidireccionales, devolvemos únicamente el id del usuario
+    public Long getUsuarioId() {
+        return usuario.getId();
     }
 
     public User getUsuario() {

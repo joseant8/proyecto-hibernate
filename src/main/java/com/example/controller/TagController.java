@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.model.Tag;
+import com.example.model.Task;
 import com.example.service.TagService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,6 +46,11 @@ public class TagController {
             return ResponseEntity.ok().body(tag);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("etiquetas/tareas/{id}")
+    public List<Task> recuperarTodasLasTareasConEtiqueta(@PathVariable Long id) {
+        return servicio.recuperarTodasLasTareasConEtiqueta(id);
     }
 
     // -----------------------------
