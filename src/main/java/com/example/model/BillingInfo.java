@@ -53,7 +53,11 @@ public class BillingInfo {
 
     // Para evitar en la respuesta json la recursión infinita en relaciones bidireccionales, devolvemos únicamente el id del usuario
     public Long getUsuarioId() {
-        return usuario.getId();
+        if(usuario != null){
+            return usuario.getId();
+        }else{
+            return null;
+        }
     }
 
     public User getUsuario() {

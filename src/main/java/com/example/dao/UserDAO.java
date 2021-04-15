@@ -14,7 +14,7 @@ public interface UserDAO {
 
     public List<User> recuperarTodosLosUsuariosActivos();
 
-    public List<Task> recuperarTareasDelUsuario(Long id);
+    public List<Task> recuperarTareasPendientesDelUsuario(Long id);
 
     public User crearUsuario(User usuario);
 

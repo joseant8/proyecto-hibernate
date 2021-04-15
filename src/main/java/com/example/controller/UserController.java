@@ -45,9 +45,9 @@ public class UserController {
         return servicio.recuerarTodosLosUsuariosActivos();
     }
 
-    @GetMapping("/usuarios/tareas/{id}")
-    public List<Task> recuperarTareasDelUsuario(@PathVariable Long id){
-        return servicio.recuperarTareasDelUsuario(id);
+    @GetMapping("/usuarios/tareas-pendientes/{id}")
+    public List<Task> recuperarTareasPendientesDelUsuario(@PathVariable Long id){
+        return servicio.recuperarTareasPendientesDelUsuario(id);
     }
 
     // -----------------------------

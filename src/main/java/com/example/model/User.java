@@ -24,7 +24,7 @@ public class User {
 
     private LocalDate fechaNacimiento;
 
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     @JsonIgnore
     List<Task> tareas = new ArrayList<>();
 

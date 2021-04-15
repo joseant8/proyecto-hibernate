@@ -65,13 +65,13 @@ public class UserDAOImpl implements UserDAO{
     }
 
     /**
-     * recupera las tareas de un usuario utilizando EntityManager
+     * recupera las tareas pendientes (sin finalizar) de un usuario utilizando EntityManager
      * @param id
      * @return
      */
     @Override
-    public List<Task> recuperarTareasDelUsuario(Long id) {
-        return manager.createQuery("select t from Task t where t.usuario = " + id).getResultList();
+    public List<Task> recuperarTareasPendientesDelUsuario(Long id) {
+        return manager.createQuery("select t from Task t where t.usuario = " + id + " and t.finalizada = false").getResultList();
     }
 
     /**

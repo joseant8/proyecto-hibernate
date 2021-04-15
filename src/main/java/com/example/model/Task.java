@@ -24,7 +24,7 @@ public class Task {
 
     @ManyToOne()
     @JoinColumn(name = "user_id")
-    @JsonIgnore
+    @JsonIgnore      // Para evitar la recursión infinita en el json (ya que es una relación bidireccional)
     private User usuario;
 
     @ManyToMany
@@ -94,9 +94,13 @@ public class Task {
         this.usuario = usuario;
     }
 
-    // Para evitar en la respuesta json la recursión infinita en relaciones bidireccionales, devolvemos el id del usuario
+    // Para evitar en la respuesta json la recursión infinita en relaciones bidireccionales, devolvemos únicamente el id del usuario
     public Long getUsuarioId() {
-        return usuario.getId();
+        if(usuario != null){
+            return usuario.getId();
+        }else{
+            return null;
+        }
     }
 
     public List<Tag> getTags() {

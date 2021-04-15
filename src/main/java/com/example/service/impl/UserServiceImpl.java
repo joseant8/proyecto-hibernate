@@ -34,8 +34,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Task> recuperarTareasDelUsuario(Long id) {
-        return userDAO.recuperarTareasDelUsuario(id);
+    public List<Task> recuperarTareasPendientesDelUsuario(Long id) {
+        return userDAO.recuperarTareasPendientesDelUsuario(id);
     }
 
     @Override
