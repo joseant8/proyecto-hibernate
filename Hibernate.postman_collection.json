@@ -1,0 +1,619 @@
+{
+	"info": {
+		"_postman_id": "7381af5e-af34-490f-b887-4846a80a8a02",
+		"name": "Hibernate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "recuperarTodosLosUsuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperarUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperarUsuarioNoExiste",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperarTodosLosUsuariosActivos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios/activos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"activos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperarTareasPendientesDelUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios/tareas-pendientes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"tareas-pendientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"María\",\r\n    \"apellido\": \"Costa\",\r\n    \"dni\": \"22345678M\",\r\n    \"activo\": true,\r\n    \"fechaNacimiento\": \"1990-01-22\",\r\n    \"tareas\": [],\r\n    \"facturacion\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"nombre\": \"Ana\",\r\n    \"apellido\": \"Costa\",\r\n    \"dni\": \"72345678M\",\r\n    \"activo\": false,\r\n    \"fechaNacimiento\": \"1990-01-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarUsuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "recuperarTodasLasTareas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tareas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tareas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperarTarea",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tareas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tareas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperarTodasLasTareasSinFinalizar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tareas/pendientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tareas",
+								"pendientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearTarea",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Nueva Entrega\",\r\n    \"descripcion\": \"Entrega del proyecto nuevo\",\r\n    \"finalizada\": false,\r\n    \"fechaEntrega\": \"2021-05-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tareas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tareas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarTarea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 7,\r\n    \"titulo\": \"Nueva Entrega Actualizada\",\r\n    \"descripcion\": \"Entrega del proyecto nuevo\",\r\n    \"finalizada\": false,\r\n    \"fechaEntrega\": \"2021-05-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tareas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tareas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tag",
+			"item": [
+				{
+					"name": "recuperarTodasLasEtiquetas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/etiquetas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"etiquetas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperarEtiqueta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/etiquetas/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"etiquetas",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperarTodasLasTareasConEtiqueta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/etiquetas/tareas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"etiquetas",
+								"tareas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperarEtiquetaPorNombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/etiquetas/nombre/Testear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"etiquetas",
+								"nombre",
+								"Testear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperarEtiquetaPorNombreNoExiste",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/etiquetas/nombre/meloinvento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"etiquetas",
+								"nombre",
+								"meloinvento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearEtiqueta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Documentar\",\r\n    \"color\": \"BLUE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/etiquetas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"etiquetas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarEtiqueta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"nombre\": \"FixBug\",\r\n    \"color\": \"RED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/etiquetas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"etiquetas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BillingInfo",
+			"item": [
+				{
+					"name": "recuperarTodasLasFacturaciones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/facturaciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"facturaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperarFacturacion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/facturaciones/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"facturaciones",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperarFacturacionesDondeDireccionContiene",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/facturaciones/direccion-contiene/Rosa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"facturaciones",
+								"direccion-contiene",
+								"Rosa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearFacturacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"direccion\": \"Calle Larios, Málaga\",\r\n    \"telefono\": \"800500600\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/facturaciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"facturaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarFacturacion",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"direccion\": \"Calle Marqués de Larios, Málaga\",\r\n    \"telefono\": \"800500600\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/facturaciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"facturaciones"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
